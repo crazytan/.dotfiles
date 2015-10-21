@@ -77,6 +77,15 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; openwith
+;; (require 'openwith)
+;; (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
+;; (openwith-mode t)
+
+;; add texbin to PATH and exec-path
+(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
+(setq exec-path (append exec-path '(":/Library/TeX/texbin")))
+
 ;; configs from better-defaults
 (show-paren-mode 1)
 (setq-default indent-tabs-mode nil)
@@ -99,7 +108,3 @@
       load-prefer-newer t
       ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; openwith
-(require 'openwith)
-(setq openwith-associations '(("\\.pdf\\'" "open" (file))))
-(openwith-mode t)
