@@ -1,6 +1,9 @@
 ;; hide toolbar
 (tool-bar-mode -1)
 
+;; hide scroll bar
+(scroll-bar-mode -1)
+
 ;; map command to meta
 (setq mac-option-key-is-meta nil)
 (setq mac-command-key-is-meta t)
