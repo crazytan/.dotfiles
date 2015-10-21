@@ -21,10 +21,13 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("0d3fb10835e185b4b350b1bd902ca452e795b9e9fc7f6e8a5eebb9d146f9beff" default))))
+    ("0d3fb10835e185b4b350b1bd902ca452e795b9e9fc7f6e8a5eebb9d146f9beff" default)))
+ '(display-battery-mode t)
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -57,3 +60,12 @@
 
 ;; y-or-n instead of yes-or-no
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; smex
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+
