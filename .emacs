@@ -65,8 +65,8 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; smex
-(require 'smex)
-(smex-initialize)
+;; (require 'smex)
+;; (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 ;; This is your old M-x.
