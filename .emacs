@@ -49,6 +49,7 @@
 ;; ido mode
 (require 'ido)
 (ido-mode t)
+(setq ido-enable-flex-matching t)
 
 ;; Marmalade
 (require 'package)
@@ -57,9 +58,9 @@
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
+      `((".*" . ,user-emacs-directory)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+      `((".*" ,user-emacs-directory t)))
 
 ;; y-or-n instead of yes-or-no
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -75,3 +76,25 @@
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
+(show-paren-mode 1)
+(setq-default indent-tabs-mode nil)
+
+(global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "M-z") 'zap-up-to-char)
+
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+(setq x-select-enable-clipboard t
+      x-select-enable-primary t
+      save-interprogram-paste-before-kill t
+      apropos-do-all t
+      mouse-yank-at-point t
+      require-final-newline t
+      load-prefer-newer t
+      ediff-window-setup-function 'ediff-setup-windows-plain)
+
