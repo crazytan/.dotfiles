@@ -1,3 +1,5 @@
+(package-initialize)
+
 ;; hide toolbar
 (tool-bar-mode -1)
 
@@ -78,9 +80,9 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; openwith
-;; (require 'openwith)
-;; (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
-;; (openwith-mode t)
+(require 'openwith)
+(setq openwith-associations '(("\\.pdf\\'" "open" (file))))
+(openwith-mode t)
 
 ;; add texbin to PATH and exec-path
 (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
