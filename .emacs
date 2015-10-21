@@ -77,6 +77,7 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+;; configs from better-defaults
 (show-paren-mode 1)
 (setq-default indent-tabs-mode nil)
 
@@ -98,3 +99,7 @@
       load-prefer-newer t
       ediff-window-setup-function 'ediff-setup-windows-plain)
 
+;; openwith
+(require 'openwith)
+(setq openwith-associations '(("\\.pdf\\'" "open" (file))))
+(openwith-mode t)
