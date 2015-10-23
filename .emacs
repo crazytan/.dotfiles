@@ -81,13 +81,15 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; openwith
+(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/openwith-20120531")
 (require 'openwith)
 (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
+(setq openwith-associations '(("\\.ppt\\'" "open" (file))))
 (openwith-mode t)
 
 ;; add texbin to PATH and exec-path
 (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
-(setq exec-path (append exec-path '(":/Library/TeX/texbin")))
+(setq exec-path (append exec-path '("/Library/TeX/texbin")))
 
 ;; configs from better-defaults
 (show-paren-mode 1)
@@ -111,3 +113,5 @@
       load-prefer-newer t
       ediff-window-setup-function 'ediff-setup-windows-plain)
 
+;; autosave before compiling LaTeX files
+(setq TeX-save-query nil)
