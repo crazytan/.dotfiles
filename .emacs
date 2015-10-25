@@ -1,4 +1,4 @@
-(package-initialize)
+;; (package-initialize)
 
 ;; hide toolbar
 (tool-bar-mode -1)
@@ -83,7 +83,7 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; openwith
-(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/openwith-20120531")
+(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/openwith-20120531.1436")
 (require 'openwith)
 (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
 (setq openwith-associations '(("\\.ppt\\'" "open" (file))))
@@ -123,16 +123,13 @@
           (lambda () (c-toggle-auto-hungry-state 1)))
 
 ;; autopair
+(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/autopair-20140825.427")
 (require 'autopair)
 (autopair-global-mode 1)
 (setq autopair-autowrap t)
 
 ;; cc-mode style
 (setq-default c-basic-offset 4 c-default-style "linux")
-
-;; company mode
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
 
 ;; move between windows
 (global-set-key (kbd "M-]") 'other-window)
@@ -141,3 +138,13 @@
 (defun prev-window ()
   (interactive)
   (other-window -1))
+
+;; company mode
+(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-20151023.1754")
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-backends (delete 'company-semantic company-backends))
+
+;; add company-complete to c-mode-base-map
+(require 'cc-mode)
+(define-key c-mode-base-map [(tab)] 'company-complete)
