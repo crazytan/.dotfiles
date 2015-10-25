@@ -148,3 +148,4 @@
 ;; add company-complete to c-mode-base-map
 (require 'cc-mode)
 (define-key c-mode-base-map [(tab)] 'company-complete)
+(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
