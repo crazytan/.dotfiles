@@ -1,4 +1,4 @@
-(package-initialize)
+;; (package-initialize)
 
 ;; hide toolbar
 (tool-bar-mode -1)
@@ -115,3 +115,7 @@
 
 ;; autosave before compiling LaTeX files
 (setq TeX-save-query nil)
+
+;; auto newline and hungry delete for cc-mode
+(add-hook 'c-mode-common-hook
+          (lambda () (c-toggle-auto-hungry-state 1)))
