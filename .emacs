@@ -54,10 +54,12 @@
 (setq ido-enable-flex-matching t)
 (setq ido-save-directory-list-file "/Users/tan/ido.last")
 
-;; Marmalade
+;; MELPA
 (require 'package)
+;; (add-to-list 'package-archives
+;; 	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
@@ -127,3 +129,7 @@
 
 ;; cc-mode style
 (setq-default c-basic-offset 4 c-default-style "linux")
+
+;; company mode
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
