@@ -133,3 +133,11 @@
 ;; company mode
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; move between windows
+(global-set-key (kbd "M-]") 'other-window)
+(global-set-key (kbd "M-[") 'prev-window)
+
+(defun prev-window ()
+  (interactive)
+  (other-window -1))
