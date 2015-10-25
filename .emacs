@@ -1,4 +1,4 @@
-;; (package-initialize)
+(package-initialize)
 
 ;; hide toolbar
 (tool-bar-mode -1)
@@ -119,3 +119,11 @@
 ;; auto newline and hungry delete for cc-mode
 (add-hook 'c-mode-common-hook
           (lambda () (c-toggle-auto-hungry-state 1)))
+
+;; autopair
+(require 'autopair)
+(autopair-global-mode 1)
+(setq autopair-autowrap t)
+
+;; cc-mode style
+(setq-default c-basic-offset 4 c-default-style "linux")
