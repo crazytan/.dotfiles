@@ -154,3 +154,6 @@
 
 ;; magit command
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; tramp
+(setq tramp-default-method "ssh")
