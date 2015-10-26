@@ -1,5 +1,3 @@
-;; (package-initialize)
-
 ;; hide toolbar
 (tool-bar-mode -1)
 
@@ -85,8 +83,12 @@
 ;; openwith
 (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/openwith-20120531.1436")
 (require 'openwith)
-(setq openwith-associations '(("\\.pdf\\'" "open" (file))))
-(setq openwith-associations '(("\\.ppt\\'" "open" (file))))
+(setq openwith-associations
+      (list
+      '("\\.pdf\\'" "open" (file))
+      '("\\.ppt\\'" "open" (file))
+      '("\\.pptx\\'" "open" (file))     
+      ))
 (openwith-mode t)
 
 ;; add texbin to PATH and exec-path
@@ -149,3 +151,6 @@
 (require 'cc-mode)
 (define-key c-mode-base-map [(tab)] 'company-complete)
 (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
+
+;; magit command
+(global-set-key (kbd "C-x g") 'magit-status)
