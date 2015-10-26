@@ -95,6 +95,10 @@
 (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
 (setq exec-path (append exec-path '("/Library/TeX/texbin")))
 
+;; add ispell to PATH and exec-path
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;; configs from better-defaults
 (show-paren-mode 1)
 (setq-default indent-tabs-mode nil)
@@ -157,3 +161,8 @@
 
 ;; tramp
 (setq tramp-default-method "ssh")
+
+;; company for AUCTEX
+;; (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-auctex-20150620.1421")
+;; (require 'company-auctex)
+;; (company-auctex-init)
