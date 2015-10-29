@@ -87,7 +87,9 @@
       (list
       '("\\.pdf\\'" "open" (file))
       '("\\.ppt\\'" "open" (file))
-      '("\\.pptx\\'" "open" (file))     
+      '("\\.pptx\\'" "open" (file))
+      '("\\.doc\\'" "open" (file))
+      '("\\.docx\\'" "open" (file))      
       ))
 (openwith-mode t)
 
