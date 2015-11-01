@@ -1,0 +1,17 @@
+
+;; ----- smex-history -----
+(
+ eval-region
+ package-install
+ cd
+ 5x5
+ arp
+ dbx
+ dig
+)
+
+;; ----- smex-data -----
+(
+ (eval-region . 7)
+ (package-install . 2)
+)

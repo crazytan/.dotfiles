@@ -1,3 +1,6 @@
+;; hide emacs warning for enter key
+(global-set-key (kbd "<key-4660>") 'ignore)
+
 ;; hide toolbar
 (tool-bar-mode -1)
 
@@ -5,10 +8,11 @@
 (scroll-bar-mode -1)
 
 ;; map command to meta
-(setq mac-option-key-is-meta nil)
-(setq mac-command-key-is-meta t)
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
+(if (eq system-type 'darwin)
+    (setq mac-option-key-is-meta nil)
+    (setq mac-command-key-is-meta t)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier nil))
 
 ;; line and column number
 (global-linum-mode t)
@@ -40,17 +44,21 @@
  )
 
 ;; battery status
-(display-battery-mode 1)
+(if (eq system-type 'darwin)
+    (display-battery-mode 1))
 
 ;; init window size
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 110))
+(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(width . 100))
 
 ;; ido mode
 (require 'ido)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
-(setq ido-save-directory-list-file "/Users/tan/ido.last")
+(if (eq system-type 'darwin)
+    (setq ido-save-directory-list-file "/Users/tan/ido.last"))
+(if (eq system-type 'gnu/linux)
+    (setq ido-save-directory-list-file "/home/tan/.emacs/ido.last"))
 
 ;; MELPA
 (require 'package)
@@ -81,7 +89,10 @@
 (setq uniquify-buffer-name-style 'forward)
 
 ;; openwith
-(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/openwith-20120531.1436")
+(if (eq system-type 'darwin)
+    (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/openwith-20120531.1436"))
+(if (eq system-type 'gnu/linux)
+    (add-to-list 'load-path "/home/tan/.emacs.d/elpa/openwith-20120531.1436"))
 (require 'openwith)
 (setq openwith-associations
       (list
@@ -94,12 +105,16 @@
 (openwith-mode t)
 
 ;; add texbin to PATH and exec-path
-(setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
-(setq exec-path (append exec-path '("/Library/TeX/texbin")))
+(if (eq system-type 'darwin)
+    (progn
+      (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
+      (setq exec-path (append exec-path '("/Library/TeX/texbin")))))
 
 ;; add ispell to PATH and exec-path
-(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-(setq exec-path (append exec-path '("/usr/local/bin")))
+(if (eq system-type 'darwin)
+    (progn
+      (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+      (setq exec-path (append exec-path '("/usr/local/bin")))))
 
 ;; configs from better-defaults
 (show-paren-mode 1)
@@ -131,7 +146,10 @@
           (lambda () (c-toggle-auto-hungry-state 1)))
 
 ;; autopair
-(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/autopair-20140825.427")
+(if (eq system-type 'darwin)
+    (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/autopair-20140825.427"))
+(if (eq system-type 'gnu/linux)
+    (add-to-list 'load-path "/home/tan/.emacs.d/elpa/autopair-20140825.427"))
 (require 'autopair)
 (autopair-global-mode 1)
 (setq autopair-autowrap t)
@@ -148,7 +166,10 @@
   (other-window -1))
 
 ;; company mode
-(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-20151023.1754")
+(if (eq system-type 'darwin)
+    (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-20151023.1754"))
+(if (eq system-type 'gnu/linux)
+    (add-to-list 'load-path "/home/tan/.emacs.d/elpa/company-20151023.1754"))
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-backends (delete 'company-semantic company-backends))
