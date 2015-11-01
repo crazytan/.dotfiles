@@ -34,6 +34,7 @@
    (quote
     ("0d3fb10835e185b4b350b1bd902ca452e795b9e9fc7f6e8a5eebb9d146f9beff" default)))
  '(display-battery-mode t)
+ '(safe-local-variable-values (quote ((TeX-master . t))))
  '(tool-bar-mode nil))
 
 (custom-set-faces
