@@ -59,7 +59,7 @@
 (if (eq system-type 'darwin)
     (setq ido-save-directory-list-file "/Users/tan/ido.last"))
 (if (eq system-type 'gnu/linux)
-    (setq ido-save-directory-list-file "/home/tan/.emacs/ido.last"))
+    (setq ido-save-directory-list-file "/home/tan/.emacs.d/ido.last"))
 
 ;; MELPA
 (require 'package)
@@ -173,7 +173,8 @@
     (add-to-list 'load-path "/home/tan/.emacs.d/elpa/company-20151023.1754"))
 (require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-backends (delete 'company-semantic company-backends))
+(if (eq system-type 'darwin)
+    (setq company-backends (delete 'company-semantic company-backends)))
 
 ;; add company-complete to c-mode-base-map
 (require 'cc-mode)
