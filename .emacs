@@ -1,5 +1,5 @@
 ;; hide emacs warning for enter key
-(global-set-key (kbd "<key-4660>") 'ignore)
+;; (global-set-key (kbd "<key-4660>") 'ignore)
 
 ;; hide toolbar
 (tool-bar-mode -1)
@@ -9,10 +9,11 @@
 
 ;; map command to meta
 (if (eq system-type 'darwin)
-    (setq mac-option-key-is-meta nil)
-    (setq mac-command-key-is-meta t)
-    (setq mac-command-modifier 'meta)
-    (setq mac-option-modifier nil))
+    (progn
+      (setq mac-option-key-is-meta nil)
+      (setq mac-command-key-is-meta t)
+      (setq mac-command-modifier 'meta)
+      (setq mac-option-modifier nil)))
 
 ;; line and column number
 (global-linum-mode t)
@@ -49,7 +50,7 @@
     (display-battery-mode 1))
 
 ;; init window size
-(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 100))
 
 ;; ido mode
@@ -168,7 +169,7 @@
 
 ;; company mode
 (if (eq system-type 'darwin)
-    (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-20151023.1754"))
+    (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-20151103.230"))
 (if (eq system-type 'gnu/linux)
     (add-to-list 'load-path "/home/tan/.emacs.d/elpa/company-20151023.1754"))
 (require 'company)
