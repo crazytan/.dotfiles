@@ -56,11 +56,19 @@
 ;; ido mode
 (require 'ido)
 (ido-mode t)
+(ido-everywhere 1)
 (setq ido-enable-flex-matching t)
 (if (eq system-type 'darwin)
     (setq ido-save-directory-list-file "/Users/tan/ido.last"))
 (if (eq system-type 'gnu/linux)
     (setq ido-save-directory-list-file "/home/tan/.emacs.d/ido.last"))
+
+;; ido-ubiquitous
+(if (eq system-type 'darwin)
+    (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/ido-ubiquitous-20151005.2131"))
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode t)
+
 
 ;; MELPA
 (require 'package)
