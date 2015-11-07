@@ -185,10 +185,10 @@
 (if (eq system-type 'darwin)
     (setq company-backends (delete 'company-semantic company-backends)))
 
-;; add company-complete to c-mode-base-map
-(require 'cc-mode)
-(define-key c-mode-base-map [(tab)] 'company-complete)
-(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
+;; add company-complete to prog-mode-base-map
+;; (require 'cc-mode)
+(define-key prog-mode-map [(tab)] 'company-complete)
+(define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 
 ;; magit command
 (global-set-key (kbd "C-x g") 'magit-status)
