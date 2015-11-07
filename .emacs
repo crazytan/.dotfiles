@@ -200,3 +200,13 @@
 ;; (add-to-list 'load-path "/Users/tan/.emacs.d/elpa/company-auctex-20150620.1421")
 ;; (require 'company-auctex)
 ;; (company-auctex-init)
+
+;; ido-highlight-mode
+(add-to-list 'load-path "/Users/tan/.emacs.d/elpa/idle-highlight-mode-20120920.948")
+(require 'idle-highlight-mode)
+(defun highlight-mode-hook ()
+  (make-local-variable 'column-number-mode)
+  (column-number-mode t)
+  (if window-system (hl-line-mode t))
+  (idle-highlight-mode t))
+(add-hook 'prog-mode-hook 'highlight-mode-hook)
