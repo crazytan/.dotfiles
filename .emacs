@@ -186,8 +186,8 @@
     (setq company-backends (delete 'company-semantic company-backends)))
 
 ;; add company-complete to prog-mode-base-map
-;; (require 'cc-mode)
-(define-key prog-mode-map [(tab)] 'company-complete)
+(require 'cc-mode)
+(define-key c-mode-base-map [(tab)] 'company-complete)
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 
 ;; magit command
