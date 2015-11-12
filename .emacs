@@ -59,7 +59,7 @@
 (ido-everywhere 1)
 (setq ido-enable-flex-matching t)
 (if (eq system-type 'darwin)
-    (setq ido-save-directory-list-file "/Users/tan/ido.last"))
+    (setq ido-save-directory-list-file "/Users/tan/.emacs.d/ido.last"))
 (if (eq system-type 'gnu/linux)
     (setq ido-save-directory-list-file "/home/tan/.emacs.d/ido.last"))
 
@@ -187,7 +187,8 @@
 
 ;; add company-complete to prog-mode-base-map
 (require 'cc-mode)
-(define-key c-mode-base-map [(tab)] 'company-complete)
+;; (define-key c-mode-base-map [(tab)] 'company-complete)
+(define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
 (define-key prog-mode-map (kbd "RET") 'newline-and-indent)
 
 ;; magit command
@@ -210,3 +211,7 @@
   (if window-system (hl-line-mode t))
   (idle-highlight-mode t))
 (add-hook 'prog-mode-hook 'highlight-mode-hook)
+
+;; company-jedi
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)
