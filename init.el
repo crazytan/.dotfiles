@@ -77,3 +77,11 @@
 (require 'smooth-scrolling)
 (smooth-scrolling-mode 1)
 
+;; helm
+(require 'helm)
+(require 'helm-config)
+(helm-mode 1)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(setq helm-buffers-fuzzy-matching t)
+
