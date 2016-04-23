@@ -92,4 +92,3 @@ alias clc="clear"
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 
-. /Users/tan/torch/install/bin/torch-activate

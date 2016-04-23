@@ -92,3 +92,10 @@
 ;; projectile
 (projectile-global-mode)
 
+;; company
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; company-auctex
+(require 'company-auctex)
+(company-auctex-init)
+
