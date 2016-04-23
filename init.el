@@ -47,6 +47,12 @@
       (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
       (setq exec-path (append exec-path '("/Library/TeX/texbin")))))
 
+;; add /usr/local/bin to PATH and exec-path
+(if (eq system-type 'darwin)
+    (progn
+      (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+      (setq exec-path (append exec-path '("/usr/local/bin")))))
+
 ;; show matching parenthesis
 (show-paren-mode 1)
 
@@ -90,7 +96,7 @@
 (helm-mode 1)
 
 ;; projectile
-(projectile-global-mode)
+;; (projectile-global-mode)
 
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
@@ -102,4 +108,7 @@
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
+
+;; flyspell for LaTeX
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
