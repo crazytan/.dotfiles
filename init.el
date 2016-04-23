@@ -112,3 +112,8 @@
 ;; flyspell for LaTeX
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
+;; autopair
+(require 'autopair)
+(autopair-global-mode 1)
+(setq autopair-autowrap t)
+
