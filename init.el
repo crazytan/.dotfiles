@@ -117,3 +117,5 @@
 (autopair-global-mode 1)
 (setq autopair-autowrap t)
 
+;; autosave for LaTeX
+(setq TeX-save-query nil)
