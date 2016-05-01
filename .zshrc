@@ -56,9 +56,6 @@ plugins=(git brew autojump pip python)
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/Users/tan/caffe/build/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-# pycaffe
-export PYTHONPATH=/Users/tan/caffe/python:$PYTHONPATH
-
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment

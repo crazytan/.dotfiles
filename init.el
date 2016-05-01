@@ -111,6 +111,7 @@
 
 ;; flyspell for LaTeX
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'Markdown-mode-hook 'flyspell-mode)
 
 ;; autopair
 (require 'autopair)
