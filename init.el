@@ -73,9 +73,6 @@
 ;; material theme
 (load-theme 'material t)
 
-;; rainbow identifier mode
-(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
-
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -101,16 +98,19 @@
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; company-auctex
-(require 'company-auctex)
-(company-auctex-init)
+;; only enable LaTeX-related packages on OS X
+(if (eq system-type 'darwin)
+    (progn
+      (require 'company-auctex)
+      (company-auctex-init)
+      (setq TeX-save-query nil)
+      (add-hook 'LaTeX-mode-hook 'flyspell-mode)))
 
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
-;; flyspell for LaTeX
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; flyspell for Markdown
 (add-hook 'Markdown-mode-hook 'flyspell-mode)
 
 ;; autopair
@@ -118,5 +118,6 @@
 (autopair-global-mode 1)
 (setq autopair-autowrap t)
 
-;; autosave for LaTeX
-(setq TeX-save-query nil)
+;; rainbow identifier mode
+(add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+
