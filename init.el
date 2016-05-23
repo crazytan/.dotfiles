@@ -121,3 +121,5 @@
 ;; rainbow identifier mode
 (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
 
+;; dired+
+(require 'dired+)
