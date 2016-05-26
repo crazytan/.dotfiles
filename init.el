@@ -1,4 +1,45 @@
+;; install packages
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar myPackages
+  '(async
+    auctex
+    autopair
+    better-defaults
+    company
+    company-auctex
+    dash
+    epl
+    flycheck
+    git-commit
+    helm
+    helm-core
+    let-alist
+    logito
+    magit
+    magit-popup
+    markdown-mode
+    material-theme
+    pcache
+    pkg-info
+    popup
+    projectile
+    rainbow-identifiers
+    seq
+    smooth-scrolling
+    with-editor
+    yasnippet))
+
+(mapc #'(lambda (package)
+          (unless (package-installed-p package)
+            (package-install package)))
+      myPackages)
 
 ;; hide toolbar
 (tool-bar-mode -1)
@@ -26,11 +67,6 @@
 ;; init window size
 (add-to-list 'default-frame-alist '(height . 45))
 (add-to-list 'default-frame-alist '(width . 100))
-
-;; MELPA
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;; store all backup and autosave files in the tmp dir
 (setq backup-directory-alist
