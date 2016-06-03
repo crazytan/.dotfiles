@@ -159,3 +159,4 @@
 
 ;; dired+
 (require 'dired+)
+(setq dired-dwim-target t)
