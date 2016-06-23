@@ -160,3 +160,7 @@
 ;; dired+
 (require 'dired+)
 (setq dired-dwim-target t)
+
+;; tramp
+(require 'tramp)
+(setq tramp-default-method "ssh")
