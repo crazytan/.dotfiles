@@ -164,3 +164,10 @@
 ;; tramp
 (require 'tramp)
 (setq tramp-default-method "ssh")
+
+;; flycheck
+(global-flycheck-mode)
+
+;; tramp
+(require 'tramp)
+(setq tramp-default-method "ssh")
