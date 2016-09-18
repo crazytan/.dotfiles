@@ -135,12 +135,25 @@
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; only enable LaTeX-related packages on OS X
+;; company-auctex
+(require 'company-auctex)
+(company-auctex-init)
+
+;; disable TeX-save-query
+(setq TeX-save-query nil)
+
+;; aspell on Windows
+(if (eq system-type 'windows-nt)
+    (progn
+      (add-to-list 'exec-path "c:/Program Files (x86)/Aspell/bin/")
+      (setq ispell-program-name "aspell")
+      (setq ispell-personal-dictionary "c:/Users/Tan/Documents/aspell6-en/")
+      (require 'ispell)
+      (add-hook 'LaTeX-mode-hook 'flyspell-mode)))
+
+;; directly enable flyspell for LaTeX-mode on OS X
 (if (eq system-type 'darwin)
     (progn
-      (require 'company-auctex)
-      (company-auctex-init)
-      (setq TeX-save-query nil)
       (add-hook 'LaTeX-mode-hook 'flyspell-mode)))
 
 ;; magit
@@ -172,3 +185,18 @@
 ;; tramp
 (require 'tramp)
 (setq tramp-default-method "ssh")
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (dired+ smooth-scrolling rainbow-identifiers projectile pcache material-theme markdown-mode magit logito helm flycheck company-auctex better-defaults autopair))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
