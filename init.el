@@ -15,6 +15,7 @@
     company
     company-auctex
     dash
+    dired+
     epl
     flycheck
     git-commit
