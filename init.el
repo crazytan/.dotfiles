@@ -160,6 +160,10 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
+;; magit on Windows
+(if (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "c:/Users/Tan/AppData/Local/GitHub/PortableGit_624c8416ee51e205b3f892d1d904e06e6f3c57c8/mingw32/bin/"))
+
 ;; flyspell for Markdown
 (add-hook 'Markdown-mode-hook 'flyspell-mode)
 
