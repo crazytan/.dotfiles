@@ -8,7 +8,7 @@
   (package-refresh-contents))
 
 (defvar myPackages
-  '(ace-jump
+  '(ace-jump-mode
     async
     auctex
     autopair
