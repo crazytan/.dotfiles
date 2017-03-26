@@ -43,6 +43,13 @@
             (package-install package)))
       myPackages)
 
+;; load machine specific config file
+(let ((extra-config-file
+       (concat user-emacs-directory "extra.el")))
+  (if (file-readable-p extra-config-file)
+      (load-file extra-config-file)
+    ))
+
 ;; hide toolbar
 (tool-bar-mode -1)
 
@@ -62,6 +69,9 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 
+;; make line number appear normal regardless of font size
+(set-face-attribute 'linum nil :height 120)
+
 ;; battery status
 (if (eq system-type 'darwin)
     (display-battery-mode 1))
@@ -78,18 +88,6 @@
 
 ;; y-or-n instead of yes-or-no
 (defalias 'yes-or-no-p 'y-or-n-p)
-
-;; add texbin to PATH and exec-path
-(if (eq system-type 'darwin)
-    (progn
-      (setenv "PATH" (concat (getenv "PATH") ":/Library/TeX/texbin"))
-      (setq exec-path (append exec-path '("/Library/TeX/texbin")))))
-
-;; add /usr/local/bin to PATH and exec-path
-(if (eq system-type 'darwin)
-    (progn
-      (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
-      (setq exec-path (append exec-path '("/usr/local/bin")))))
 
 ;; show matching parenthesis
 (show-paren-mode 1)
@@ -143,30 +141,15 @@
 ;; disable TeX-save-query
 (setq TeX-save-query nil)
 
-;; aspell on Windows
-(if (eq system-type 'windows-nt)
-    (progn
-      (add-to-list 'exec-path "c:/Program Files (x86)/Aspell/bin/")
-      (setq ispell-program-name "aspell")
-      (setq ispell-personal-dictionary "c:/Users/Tan/Documents/aspell6-en/")
-      (require 'ispell)
-      (add-hook 'LaTeX-mode-hook 'flyspell-mode)))
-
-;; directly enable flyspell for LaTeX-mode on OS X
-(if (eq system-type 'darwin)
-    (progn
-      (add-hook 'LaTeX-mode-hook 'flyspell-mode)))
-
 ;; magit
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch-popup)
 
-;; magit on Windows
-(if (eq system-type 'windows-nt)
-    (add-to-list 'exec-path "c:/Users/Tan/AppData/Local/GitHub/PortableGit_624c8416ee51e205b3f892d1d904e06e6f3c57c8/mingw32/bin/"))
-
-;; flyspell for Markdown
-(add-hook 'Markdown-mode-hook 'flyspell-mode)
+;; enable flyspell for textmode but not log mode
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
 
 ;; autopair
 (require 'autopair)
@@ -194,6 +177,9 @@
 ;; ace-jump
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; org-mode
+(global-set-key "\C-ca" 'org-agenda)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
