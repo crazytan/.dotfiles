@@ -103,9 +103,6 @@
   (interactive)
   (other-window -1))
 
-;; tramp
-(setq tramp-default-method "ssh")
-
 ;; material theme
 (load-theme 'material t)
 
@@ -162,10 +159,6 @@
 ;; dired+
 (require 'dired+)
 (setq dired-dwim-target t)
-
-;; tramp
-(require 'tramp)
-(setq tramp-default-method "ssh")
 
 ;; flycheck
 (global-flycheck-mode)
