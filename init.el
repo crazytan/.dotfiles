@@ -18,6 +18,7 @@
     dash
     dired+
     epl
+    exec-path-from-shell
     flycheck
     git-commit
     helm
@@ -178,6 +179,13 @@
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
 
+;; change default bell behavior
+(setq visible-bell nil)
+(setq ring-bell-function
+      (lambda ()
+        (invert-face 'mode-line)
+        (run-with-timer 0.1 nil 'invert-face 'mode-line)))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -185,7 +193,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (exec-path-from-shell ace-jump-mode dired+ smooth-scrolling rainbow-identifiers projectile pcache material-theme markdown-mode magit logito helm flycheck company-auctex better-defaults autopair))))
+    (helm-tramp exec-path-from-shell ace-jump-mode dired+ smooth-scrolling rainbow-identifiers projectile pcache material-theme markdown-mode magit logito helm flycheck company-auctex better-defaults autopair))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
