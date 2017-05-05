@@ -9,6 +9,7 @@
 
 (defvar myPackages
   '(ace-jump-mode
+    ace-window
     async
     auctex
     autopair
@@ -173,11 +174,16 @@
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
+;; ace-window
+(global-set-key (kbd "M-p") 'ace-window)
+(define-key dired-mode-map "\M-p" nil)
+(setq aw-scope 'frame)
+
 ;; org-mode
 (global-set-key "\C-ca" 'org-agenda)
 
 ;; exec-path-from-shell
-(when (memq window-system '(mac ns x))
+(when (memq window-system '(ns x))
   (exec-path-from-shell-initialize))
 
 ;; change default bell behavior
@@ -201,7 +207,7 @@
     ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (powerline helm-tramp exec-path-from-shell ace-jump-mode dired+ smooth-scrolling rainbow-identifiers projectile pcache material-theme markdown-mode magit logito helm flycheck company-auctex better-defaults autopair))))
+    (ace-window powerline helm-tramp exec-path-from-shell ace-jump-mode dired+ smooth-scrolling rainbow-identifiers projectile pcache material-theme markdown-mode magit logito helm flycheck company-auctex better-defaults autopair))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
