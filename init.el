@@ -98,14 +98,6 @@
 ;; disable tab for indent
 (setq-default indent-tabs-mode nil)
 
-;; move between windows
-(global-set-key (kbd "M-]") 'other-window)
-(global-set-key (kbd "M-[") 'prev-window)
-
-(defun prev-window ()
-  (interactive)
-  (other-window -1))
-
 ;; material theme
 (load-theme 'material t)
 
@@ -175,8 +167,7 @@
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;; ace-window
-(global-set-key (kbd "M-p") 'ace-window)
-(define-key dired-mode-map "\M-p" nil)
+(global-set-key (kbd "M-[") 'ace-window)
 (setq aw-scope 'frame)
 
 ;; org-mode
