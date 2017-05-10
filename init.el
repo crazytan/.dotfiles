@@ -197,6 +197,17 @@
 (require 'powerline)
 (powerline-default-theme)
 
+;; shortcut for terminal buffer
+(defun visit-term-buffer ()
+  "Create or visit a terminal buffer."
+  (interactive)
+  (if (not (get-buffer "*ansi-term*"))
+      (progn
+        (ansi-term (getenv "SHELL"))
+        (switch-to-buffer "*ansi-term*"))
+    (switch-to-buffer "*ansi-term*")))
+(global-set-key (kbd "C-c t") 'visit-term-buffer)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
