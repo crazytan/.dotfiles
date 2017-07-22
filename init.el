@@ -18,6 +18,7 @@
     company-auctex
     dash
     dired+
+    dockerfile-mode
     epl
     exec-path-from-shell
     flycheck
@@ -38,6 +39,7 @@
     rainbow-identifiers
     seq
     smooth-scrolling
+    terraform-mode
     with-editor
     yasnippet))
 
