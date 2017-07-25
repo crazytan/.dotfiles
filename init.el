@@ -23,6 +23,7 @@
     exec-path-from-shell
     flycheck
     git-commit
+    go-mode
     helm
     helm-core
     let-alist
@@ -203,6 +204,9 @@
         (switch-to-buffer "*ansi-term*"))
     (switch-to-buffer "*ansi-term*")))
 (global-set-key (kbd "C-c t") 'visit-term-buffer)
+
+;; golang-related settings
+(add-hook 'before-save-hook 'gofmt-before-save)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
