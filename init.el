@@ -74,6 +74,9 @@
 (setq line-number-mode t)
 (setq column-number-mode t)
 
+;; set tab size to 4
+(setq-default tab-width 4)
+
 ;; make line number appear normal regardless of font size
 (set-face-attribute 'linum nil :height 120)
 
