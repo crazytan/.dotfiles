@@ -215,6 +215,11 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 (require 'company-go)
 
+;; yasnippet configs
+(setq yas-snippet-dirs
+      '("~/.emacs.d/elpa/yasnippet-20170723.1530/snippets"))
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
