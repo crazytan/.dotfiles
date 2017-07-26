@@ -16,6 +16,7 @@
     better-defaults
     company
     company-auctex
+    company-go
     dash
     dired+
     dockerfile-mode
@@ -131,7 +132,11 @@
 ;; (projectile-global-mode)
 
 ;; company
+(require 'company)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
 
 ;; company-auctex
 (require 'company-auctex)
@@ -208,6 +213,7 @@
 
 ;; golang-related settings
 (add-hook 'before-save-hook 'gofmt-before-save)
+(require 'company-go)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
