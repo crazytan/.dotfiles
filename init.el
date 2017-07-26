@@ -37,6 +37,7 @@
     popup
     powerline
     projectile
+    protobuf-mode
     rainbow-identifiers
     seq
     smooth-scrolling
