@@ -24,7 +24,9 @@
     exec-path-from-shell
     flycheck
     git-commit
+    go-guru
     go-mode
+    go-rename
     helm
     helm-core
     let-alist
@@ -214,6 +216,8 @@
 ;; golang-related settings
 (add-hook 'before-save-hook 'gofmt-before-save)
 (require 'company-go)
+(require 'go-guru)
+(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
 
 ;; yasnippet configs
 (setq yas-snippet-dirs
