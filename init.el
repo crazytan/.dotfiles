@@ -19,6 +19,7 @@
     company-go
     dash
     dired+
+    docker
     dockerfile-mode
     epl
     exec-path-from-shell
