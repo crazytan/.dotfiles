@@ -30,6 +30,7 @@
     go-rename
     helm
     helm-core
+    helm-projectile
     let-alist
     logito
     magit
@@ -132,7 +133,9 @@
 (helm-mode 1)
 
 ;; projectile
-;; (projectile-global-mode)
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
 
 ;; company
 (require 'company)
@@ -218,24 +221,20 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 (require 'company-go)
 (require 'go-guru)
-(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
 
 ;; yasnippet configs
 (setq yas-snippet-dirs
       '("~/.emacs.d/elpa/yasnippet-20170723.1530/snippets"))
 (add-hook 'prog-mode-hook #'yas-minor-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (ace-window powerline helm-tramp exec-path-from-shell ace-jump-mode dired+ smooth-scrolling rainbow-identifiers projectile pcache material-theme markdown-mode magit logito helm flycheck company-auctex better-defaults autopair))))
+    (helm-projectile terraform-mode smooth-scrolling rainbow-identifiers protobuf-mode projectile powerline pcache material-theme markdown-mode magit logview logito helm go-rename go-guru flycheck exec-path-from-shell dockerfile-mode docker dired+ company-go company-auctex better-defaults autopair ace-window ace-jump-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
