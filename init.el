@@ -31,7 +31,6 @@
     helm
     helm-core
     helm-projectile
-    helm-tramp
     let-alist
     logito
     magit
@@ -41,7 +40,6 @@
     pcache
     pkg-info
     popup
-    powerline
     projectile
     protobuf-mode
     rainbow-identifiers
@@ -203,10 +201,6 @@
       (lambda ()
         (invert-face 'mode-line)
         (run-with-timer 0.1 nil 'invert-face 'mode-line)))
-
-;; better mode line
-(require 'powerline)
-(powerline-default-theme)
 
 ;; shortcut for terminal buffer
 (defun visit-term-buffer ()
