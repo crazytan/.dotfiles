@@ -31,6 +31,7 @@
     helm
     helm-core
     helm-projectile
+    helm-themes
     let-alist
     logito
     magit
@@ -223,17 +224,3 @@
 (setq yas-snippet-dirs
       '("~/.emacs.d/elpa/yasnippet-20170723.1530/snippets"))
 (add-hook 'prog-mode-hook #'yas-minor-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (helm-projectile terraform-mode smooth-scrolling rainbow-identifiers protobuf-mode projectile powerline pcache material-theme markdown-mode magit logview logito helm go-rename go-guru flycheck exec-path-from-shell dockerfile-mode docker dired+ company-go company-auctex better-defaults autopair ace-window ace-jump-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
