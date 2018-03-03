@@ -24,6 +24,7 @@
     epl
     exec-path-from-shell
     flycheck
+    flycheck-rust
     git-commit
     go-guru
     go-mode
@@ -177,6 +178,9 @@
 ;; flycheck
 (global-flycheck-mode)
 
+;; flycheck-rust
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
 ;; tramp
 (require 'tramp)
 (setq tramp-default-method "scp")
@@ -224,3 +228,17 @@
 (setq yas-snippet-dirs
       '("~/.emacs.d/elpa/yasnippet-20170723.1530/snippets"))
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (helm-themes toml-mode terraform-mode smooth-scrolling scala-mode rust-mode rainbow-identifiers protobuf-mode powerline pcache material-theme markdown-mode magit logito helm-tramp helm-projectile go-rename go-guru flycheck-rust exec-path-from-shell dockerfile-mode docker dired+ company-go company-auctex better-defaults autopair ace-window ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
