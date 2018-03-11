@@ -26,6 +26,7 @@
     flycheck
     flycheck-rust
     git-commit
+    go-eldoc
     go-guru
     go-mode
     go-rename
@@ -146,6 +147,19 @@
 (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 
+;; company color customization
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-preview ((t (:foreground "darkgray" :underline t))))
+ '(company-preview-common ((t (:inherit company-preview))))
+ '(company-tooltip ((t (:background "lightgray" :foreground "black"))))
+ '(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold)) (t (:inherit company-tooltip))))
+ '(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold)) (t (:inherit company-tooltip-selection))))
+ '(company-tooltip-selection ((t (:background "steelblue" :foreground "white")))))
+
 ;; company-auctex
 (require 'company-auctex)
 (company-auctex-init)
@@ -222,23 +236,17 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 (require 'company-go)
 (require 'go-guru)
-;; (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+(define-key go-mode-map (kbd "C-c C-d") 'godoc-at-point)
+(add-hook 'go-mode-hook #'go-guru-hl-identifier-mode)
+(add-hook 'go-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-go))
+            (company-mode)))
+(require 'go-eldoc)
+(add-hook 'go-mode-hook 'go-eldoc-setup)
+
 
 ;; yasnippet configs
-(setq yas-snippet-dirs
-      '("~/.emacs.d/elpa/yasnippet-20170723.1530/snippets"))
+(setq yas-snippet-dirs '("~/.dotfiles/snippets"))
+(yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (helm-themes toml-mode terraform-mode smooth-scrolling scala-mode rust-mode rainbow-identifiers protobuf-mode powerline pcache material-theme markdown-mode magit logito helm-tramp helm-projectile go-rename go-guru flycheck-rust exec-path-from-shell dockerfile-mode docker dired+ company-go company-auctex better-defaults autopair ace-window ace-jump-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
