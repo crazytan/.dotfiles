@@ -245,6 +245,8 @@
 (require 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
+;; save desktop buffers
+(desktop-save-mode 1)
 
 ;; yasnippet configs
 (setq yas-snippet-dirs '("~/.dotfiles/snippets"))
