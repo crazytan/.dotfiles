@@ -189,6 +189,9 @@
 (require 'dired+)
 (setq dired-dwim-target t)
 
+;; human-readable sizes in dired
+(setq dired-listing-switches "-alh")
+
 ;; flycheck
 (global-flycheck-mode)
 
