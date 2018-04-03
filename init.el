@@ -192,6 +192,10 @@
 ;; human-readable sizes in dired
 (setq dired-listing-switches "-alh")
 
+;; show dired details by default
+(add-hook 'dired-mode-hook
+          (lambda () (dired-hide-details-mode 0)))
+
 ;; flycheck
 (global-flycheck-mode)
 
