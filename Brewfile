@@ -1,0 +1,11 @@
+brew "bash"
+brew "bat"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "node"
+brew "ripgrep"
+brew "starship"
+brew "zoxide"
+
+cask "ghostty"

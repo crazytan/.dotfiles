@@ -1,0 +1,25 @@
+# Ghostty configuration.
+# See: https://ghostty.org/docs/config
+
+theme = Catppuccin Latte
+
+# Quick Terminal
+quick-terminal-position = bottom
+quick-terminal-animation-duration = 0.1
+quick-terminal-autohide = true
+quick-terminal-space-behavior = move
+quick-terminal-screen = mouse
+
+# Clipboard
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+# Cursor shader
+custom-shader = shaders/cursor_tail.glsl
+custom-shader-animation = always
+
+# Cursor and shell integration
+cursor-style = block
+cursor-style-blink = true
+shell-integration-features = no-cursor
