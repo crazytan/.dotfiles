@@ -88,6 +88,7 @@ FILES=(
   ".config/starship.toml"
   ".config/ghostty/config"
   ".config/ghostty/shaders/cursor_tail.glsl"
+  ".config/nvim"
 )
 
 if [[ "$INSTALL_BREW" -eq 1 ]]; then

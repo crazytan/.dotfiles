@@ -1,6 +1,6 @@
 # Dotfiles
 
-Personal macOS setup for bash, Starship, and Ghostty.
+Personal macOS setup for bash, Starship, Ghostty, and Neovim.
 
 ## What Is Managed
 
@@ -9,8 +9,9 @@ Personal macOS setup for bash, Starship, and Ghostty.
 - `~/.config/starship.toml`
 - `~/.config/ghostty/config`
 - `~/.config/ghostty/shaders/cursor_tail.glsl`
+- `~/.config/nvim`
 
-The repo also keeps older Emacs/zsh files that were already here, but the installer only links the extracted bash, Starship, and Ghostty files above.
+The repo also keeps older Emacs/zsh files that were already here, but the installer only links the extracted bash, Starship, Ghostty, and Neovim files above.
 
 ## New Mac Setup
 
@@ -30,3 +31,4 @@ The `--brew` path also runs fzf's installer with `--no-update-rc` so `~/.fzf.bas
 - The active Ghostty settings were extracted from `~/.config/ghostty/config`. The old `~/Library/Application Support/com.mitchellh.ghostty/config` file only contained the generated template, so it is not linked.
 - `~/.config/.bashrc` was an older duplicate of the current bash config and is not linked.
 - The `cc` alias appears only when `claude` is installed. Install Claude separately if you want that alias active on a fresh Mac.
+- Neovim is a LazyVim setup. Plugin source, cache, Mason packages, sessions, and other runtime state are intentionally left out; Neovim/lazy.nvim will recreate them on first launch from the tracked config and `lazy-lock.json`.
