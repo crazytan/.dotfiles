@@ -11,8 +11,6 @@ Personal macOS setup for bash, Starship, Ghostty, and Neovim.
 - `~/.config/ghostty/shaders/cursor_tail.glsl`
 - `~/.config/nvim`
 
-The repo also keeps older Emacs/zsh files that were already here, but the installer only links the extracted bash, Starship, Ghostty, and Neovim files above.
-
 ## New Mac Setup
 
 ```bash
